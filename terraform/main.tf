@@ -19,7 +19,7 @@ module "test" {
   source  = "Azure/avm-ptn-aiml-landing-zone/azurerm"
   version = "0.1.1"
 
-  location            = "swedencentral" #temporarily pinning on australiaeast for capacity limits in test subscription.
+  location            = var.location
 //  resource_group_name = "ai-lz-rg-standalone-${substr(module.naming.unique-seed, 0, 5)}"
   resource_group_name = "ai-lz-rg-01"
   vnet_definition = {
