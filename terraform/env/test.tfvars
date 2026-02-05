@@ -1,0 +1,12 @@
+resource_group_name = "ai-lz-rg-test"
+location            = "centralus"
+vnet_name           = "ai-lz-vnet-test"
+vnet_address_space  = "192.168.30.0/23"
+enable_telemetry    = true
+ai_foundry_purge_on_destroy = true
+ai_foundry_create_agent_service = false
+ai_model_name = "gpt-4.1-test"
+ai_model_format = "OpenAI"
+ai_model_version = "2025-04-14"
+ai_model_scale_type = "GlobalStandard"
+ai_model_scale_capacity = 1

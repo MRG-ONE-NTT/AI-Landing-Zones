@@ -20,28 +20,27 @@ module "test" {
   version = "0.1.1"
 
   location            = var.location
-//  resource_group_name = "ai-lz-rg-standalone-${substr(module.naming.unique-seed, 0, 5)}"
-  resource_group_name = "ai-lz-rg-01"
+  resource_group_name = var.resource_group_name
   vnet_definition = {
-    name          = "ai-lz-vnet-01"
-    address_space = "192.168.0.0/23" # has to be out of 192.168.0.0/16 currently. Other RFC1918 not supported for foundry capabilityHost injection.
+    name          = var.vnet_name
+    address_space = var.vnet_address_space
   }
   ai_foundry_definition = {
-    purge_on_destroy = true
+    purge_on_destroy = var.ai_foundry_purge_on_destroy
     ai_foundry = {
-      create_ai_agent_service = true
+      create_ai_agent_service = var.ai_foundry_create_agent_service
     }
     ai_model_deployments = {
       "gpt-4o" = {
-        name = "gpt-4.1"
+        name = var.ai_model_name
         model = {
-          format  = "OpenAI"
-          name    = "gpt-4.1"
-          version = "2025-04-14"
+          format  = var.ai_model_format
+          name    = var.ai_model_name
+          version = var.ai_model_version
         }
         scale = {
-          type     = "GlobalStandard"
-          capacity = 1
+          type     = var.ai_model_scale_type
+          capacity = var.ai_model_scale_capacity
         }
       }
     }

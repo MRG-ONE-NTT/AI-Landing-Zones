@@ -1,0 +1,12 @@
+resource_group_name = "ai-lz-rg-prod"
+location            = "westus2"
+vnet_name           = "ai-lz-vnet-prod"
+vnet_address_space  = "192.168.20.0/23"
+enable_telemetry    = false
+ai_foundry_purge_on_destroy = false
+ai_foundry_create_agent_service = true
+ai_model_name = "gpt-4.1-prod"
+ai_model_format = "OpenAI"
+ai_model_version = "2025-04-14"
+ai_model_scale_type = "GlobalStandard"
+ai_model_scale_capacity = 3
