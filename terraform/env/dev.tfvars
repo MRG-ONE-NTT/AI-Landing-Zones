@@ -10,3 +10,20 @@ ai_model_format = "OpenAI"
 ai_model_version = "2025-04-14"
 ai_model_scale_type = "GlobalStandard"
 ai_model_scale_capacity = 1
+
+ai_project_name = "project-dev"
+ai_project_description = "AI Project for Development Environment"
+ai_project_display_name = "AI Dev Project"
+ai_project_create_connections = true
+
+app_gateway_deploy = false
+app_gateway_backend_pool_name = "dev-backend-pool"
+app_gateway_http_settings_name = "dev-http-settings"
+app_gateway_http_settings_port = 80
+app_gateway_http_settings_protocol = "Http"
+app_gateway_frontend_port_name = "dev-frontend-port"
+app_gateway_frontend_port = 80
+app_gateway_listener_name = "dev-listener"
+app_gateway_rule_name = "dev-rule"
+app_gateway_rule_type = "Basic"
+app_gateway_rule_priority = 100

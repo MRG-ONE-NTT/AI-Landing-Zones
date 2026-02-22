@@ -46,10 +46,10 @@ module "test" {
     }
     ai_projects = {
       project_1 = {
-        name                       = "project-1"
-        description                = "Project 1 description"
-        display_name               = "Project 1 Display Name"
-        create_project_connections = true
+        name                       = var.ai_project_name
+        description                = var.ai_project_description
+        display_name               = var.ai_project_display_name
+        create_project_connections = var.ai_project_create_connections
         cosmos_db_connection = {
           new_resource_map_key = "this"
         }
@@ -91,44 +91,44 @@ module "test" {
     }
   }
   app_gateway_definition = {
-    deploy = false
+    deploy = var.app_gateway_deploy
     
     backend_address_pools = {
       example_pool = {
-        name = "example-backend-pool"
+        name = var.app_gateway_backend_pool_name
       }
     }
 
     backend_http_settings = {
       example_http_settings = {
-        name     = "example-http-settings"
-        port     = 80
-        protocol = "Http"
+        name     = var.app_gateway_http_settings_name
+        port     = var.app_gateway_http_settings_port
+        protocol = var.app_gateway_http_settings_protocol
       }
     }
 
     frontend_ports = {
       example_frontend_port = {
-        name = "example-frontend-port"
-        port = 80
+        name = var.app_gateway_frontend_port_name
+        port = var.app_gateway_frontend_port
       }
     }
 
     http_listeners = {
       example_listener = {
-        name               = "example-listener"
-        frontend_port_name = "example-frontend-port"
+        name               = var.app_gateway_listener_name
+        frontend_port_name = var.app_gateway_frontend_port_name
       }
     }
 
     request_routing_rules = {
       example_rule = {
-        name                       = "example-rule"
-        rule_type                  = "Basic"
-        http_listener_name         = "example-listener"
-        backend_address_pool_name  = "example-backend-pool"
-        backend_http_settings_name = "example-http-settings"
-        priority                   = 100
+        name                       = var.app_gateway_rule_name
+        rule_type                  = var.app_gateway_rule_type
+        http_listener_name         = var.app_gateway_listener_name
+        backend_address_pool_name  = var.app_gateway_backend_pool_name
+        backend_http_settings_name = var.app_gateway_http_settings_name
+        priority                   = var.app_gateway_rule_priority
       }
     }
   }
