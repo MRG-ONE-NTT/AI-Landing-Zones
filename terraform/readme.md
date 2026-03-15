@@ -101,7 +101,15 @@ az account show --query id --output tsv
 # Replace <SUBSCRIPTION_ID> with your actual subscription ID
 # Replace <SP_NAME> with a descriptive name (e.g., "terraform-ai-landing-zone-sp")
 # The below command creates a Service Principal and assigns contributor role to the subscription
-az ad sp create-for-rbac --name "<SP_NAME>" --role="Contributor" --scopes="/subscriptions/<SUBSCRIPTION_ID>"
+# This causes problems in GitBash. Use the next CLI command instead to turn off auto PATH conversion
+az ad sp create-for-rbac --name "SP-AI-LZ-IAC" --role="Contributor" --scopes="/subscriptions/SUBSCRIPTION_ID"
+
+MSYS_NO_PATHCONV=1 az ad sp create-for-rbac --name "SP-AI-LZ-IAC" --role="Contributor" --scopes="/subscriptions/SUBSCRIPTION_ID"
+# To grant Key Vault permissions, the Service Principal must have either "Owner" or "User Access Administrator". 
+# Following least privilege principle, assign "User Access Administrator". 
+# Replace <SP_AppId> with the Application ID from the output above. 
+# Assign the role:
+MSYS_NO_PATHCONV=1 az role assignment create --assignee "APP_ID" --role="User Access Administrator" --scope="/subscriptions/SUBSCRIPTION_ID"
 ```
 
 **Example output:**

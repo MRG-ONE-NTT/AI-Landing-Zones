@@ -1,0 +1,29 @@
+resource_group_name = "ai-lz-rg-test"
+location            = "centralus"
+vnet_name           = "ai-lz-vnet-test"
+vnet_address_space  = "192.168.30.0/23"
+enable_telemetry    = true
+ai_foundry_purge_on_destroy = true
+ai_foundry_create_agent_service = false
+ai_model_name = "gpt-4.1-test"
+ai_model_format = "OpenAI"
+ai_model_version = "2025-04-14"
+ai_model_scale_type = "GlobalStandard"
+ai_model_scale_capacity = 1
+
+ai_project_name = "project-test"
+ai_project_description = "AI Project for Test Environment"
+ai_project_display_name = "AI Test Project"
+ai_project_create_connections = true
+
+app_gateway_deploy = false
+app_gateway_backend_pool_name = "test-backend-pool"
+app_gateway_http_settings_name = "test-http-settings"
+app_gateway_http_settings_port = 80
+app_gateway_http_settings_protocol = "Http"
+app_gateway_frontend_port_name = "test-frontend-port"
+app_gateway_frontend_port = 80
+app_gateway_listener_name = "test-listener"
+app_gateway_rule_name = "test-rule"
+app_gateway_rule_type = "Basic"
+app_gateway_rule_priority = 100

@@ -19,38 +19,37 @@ module "test" {
   source  = "Azure/avm-ptn-aiml-landing-zone/azurerm"
   version = "0.1.1"
 
-  location            = "swedencentral" #temporarily pinning on australiaeast for capacity limits in test subscription.
-//  resource_group_name = "ai-lz-rg-standalone-${substr(module.naming.unique-seed, 0, 5)}"
-  resource_group_name = "ai-lz-rg-01"
+  location            = var.location
+  resource_group_name = var.resource_group_name
   vnet_definition = {
-    name          = "ai-lz-vnet-01"
-    address_space = "192.168.0.0/23" # has to be out of 192.168.0.0/16 currently. Other RFC1918 not supported for foundry capabilityHost injection.
+    name          = var.vnet_name
+    address_space = var.vnet_address_space
   }
   ai_foundry_definition = {
-    purge_on_destroy = true
+    purge_on_destroy = var.ai_foundry_purge_on_destroy
     ai_foundry = {
-      create_ai_agent_service = true
+      create_ai_agent_service = var.ai_foundry_create_agent_service
     }
     ai_model_deployments = {
       "gpt-4o" = {
-        name = "gpt-4.1"
+        name = var.ai_model_name
         model = {
-          format  = "OpenAI"
-          name    = "gpt-4.1"
-          version = "2025-04-14"
+          format  = var.ai_model_format
+          name    = var.ai_model_name
+          version = var.ai_model_version
         }
         scale = {
-          type     = "GlobalStandard"
-          capacity = 1
+          type     = var.ai_model_scale_type
+          capacity = var.ai_model_scale_capacity
         }
       }
     }
     ai_projects = {
       project_1 = {
-        name                       = "project-1"
-        description                = "Project 1 description"
-        display_name               = "Project 1 Display Name"
-        create_project_connections = true
+        name                       = var.ai_project_name
+        description                = var.ai_project_description
+        display_name               = var.ai_project_display_name
+        create_project_connections = var.ai_project_create_connections
         cosmos_db_connection = {
           new_resource_map_key = "this"
         }
@@ -92,44 +91,44 @@ module "test" {
     }
   }
   app_gateway_definition = {
-    deploy = false
+    deploy = var.app_gateway_deploy
     
     backend_address_pools = {
       example_pool = {
-        name = "example-backend-pool"
+        name = var.app_gateway_backend_pool_name
       }
     }
 
     backend_http_settings = {
       example_http_settings = {
-        name     = "example-http-settings"
-        port     = 80
-        protocol = "Http"
+        name     = var.app_gateway_http_settings_name
+        port     = var.app_gateway_http_settings_port
+        protocol = var.app_gateway_http_settings_protocol
       }
     }
 
     frontend_ports = {
       example_frontend_port = {
-        name = "example-frontend-port"
-        port = 80
+        name = var.app_gateway_frontend_port_name
+        port = var.app_gateway_frontend_port
       }
     }
 
     http_listeners = {
       example_listener = {
-        name               = "example-listener"
-        frontend_port_name = "example-frontend-port"
+        name               = var.app_gateway_listener_name
+        frontend_port_name = var.app_gateway_frontend_port_name
       }
     }
 
     request_routing_rules = {
       example_rule = {
-        name                       = "example-rule"
-        rule_type                  = "Basic"
-        http_listener_name         = "example-listener"
-        backend_address_pool_name  = "example-backend-pool"
-        backend_http_settings_name = "example-http-settings"
-        priority                   = 100
+        name                       = var.app_gateway_rule_name
+        rule_type                  = var.app_gateway_rule_type
+        http_listener_name         = var.app_gateway_listener_name
+        backend_address_pool_name  = var.app_gateway_backend_pool_name
+        backend_http_settings_name = var.app_gateway_http_settings_name
+        priority                   = var.app_gateway_rule_priority
       }
     }
   }
