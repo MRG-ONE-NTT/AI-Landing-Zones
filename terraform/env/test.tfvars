@@ -1,7 +1,7 @@
 resource_group_name = "ai-lz-rg-test"
 location            = "centralus"
 vnet_name           = "ai-lz-vnet-test"
-vnet_address_space  = "192.168.30.0/23"
+vnet_address_space  = ["192.168.30.0/23"]
 enable_telemetry    = true
 ai_foundry_purge_on_destroy = true
 ai_foundry_create_agent_service = false
