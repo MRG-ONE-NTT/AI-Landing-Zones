@@ -431,3 +431,4 @@ FodyWeavers.xsd
 *.msm
 *.msp
 terraform/plan_output.txt
+terraform/dev.tfplan
