@@ -15,9 +15,8 @@ data "http" "ip" {
 }
 
 module "test" {
-  //source = "./.terraform/modules/test"  # Reference to local module in .terraform folder
   source  = "Azure/avm-ptn-aiml-landing-zone/azurerm"
-  version = "0.1.1"
+  version = "0.4.0"
 
   location            = var.location
   resource_group_name = var.resource_group_name

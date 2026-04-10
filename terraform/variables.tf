@@ -28,8 +28,8 @@ variable "vnet_name" {
 
 variable "vnet_address_space" {
   description = "Address space for the virtual network"
-  type        = string
-  default     = "192.168.0.0/23"
+  type        = list(string)
+  default     = ["192.168.0.0/23"]
 }
 
 variable "ai_foundry_purge_on_destroy" {

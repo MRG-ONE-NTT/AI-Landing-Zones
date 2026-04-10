@@ -1,11 +1,11 @@
 resource_group_name = "ai-lz-rg-dev"
 location            = "eastus"
 vnet_name           = "ai-lz-vnet-dev"
-vnet_address_space  = "192.168.10.0/23"
+vnet_address_space  = ["192.168.10.0/23"]
 enable_telemetry    = true
 ai_foundry_purge_on_destroy = true
 ai_foundry_create_agent_service = true
-ai_model_name = "gpt-4.1-dev"
+ai_model_name = "gpt-4.1"
 ai_model_format = "OpenAI"
 ai_model_version = "2025-04-14"
 ai_model_scale_type = "GlobalStandard"

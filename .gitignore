@@ -18,6 +18,9 @@
 .terraform
 .terraform/
 .tfstate
+.terraform
+.terraform/
+.tfstate
 
 # Bicep build outputs (don’t commit generated ARM templates)
 bicep/**/*.json
@@ -431,3 +434,4 @@ FodyWeavers.xsd
 *.msm
 *.msp
 terraform/plan_output.txt
+terraform/dev.tfplan
