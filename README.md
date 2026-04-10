@@ -9,19 +9,22 @@ The AI Landing Zone provides an enterprise-scale production ready reference arch
 - The AI Landing Zone is able to cover both generative and non-generative scenario per [resource selection guidance CAF AI Scenario](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/platform/resource-selection).
 - Given the pace of innovation and change in AI, the AI Landing Zone may leverage services in Preview to provide an architecture with latest features.
 
-## Reference Architectures
+The AI Landing Zones comprises of a landing zone for Foundry and a landing zone for APIM as AI Gateway, both of them can be deployed together or independently based on the needs of the organization and the use case.
 
-The AI Landing Zones comprises of a landing zone for Foundry and a landing zone for AI Gateway, both of them can be deployed together or independently based on the needs of the organization and the use case.
 ![image](/media/AI-Landing-Zone.png)
+
+## Reference Architectures
 
 ### AI Landing Zone for Foundry
 
 The below diagram represents the reference architecture of the AI Landing Zone for Foundry which leverages the Foundry for AI Apps & Agents workloads.
+
 ![image](/media/AI-Landing-Zone-Foundry.png)
 
 ### AI Landing Zone for APIM
 
 The below diagram represents the reference architecture of the AI Landing Zone for APIM which leverages APIM as AI Gateway for centrally managing and serving Foundry models.
+
 ![image](/media/AI-Landing-Zones-APIM.png)
 
 ## Extensible Implementations
@@ -34,14 +37,16 @@ The table represents the various reference implementations of the AI Landing Zon
 | Bicep | [Repo](https://aka.ms/ailz/bicep) |
 | Portal | [![Deploy To Azure](https://learn.microsoft.com/en-us/azure/templates/media/deploy-to-azure.svg)](https://portal.azure.com/#blade/Microsoft_Azure_CreateUIDef/CustomDeploymentBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAI-Landing-Zones%2Frefs%2Fheads%2Fportal%2Fportal%2Ftemplate.json/uiFormDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAI-Landing-Zones%2Frefs%2Fheads%2Fportal%2Fportal%2Fform.json) |
 
+> **Note:** The previous Bicep implementation is still available in the [`legacy-bicep`](https://github.com/Azure/AI-Landing-Zones/tree/legacy-bicep) branch for users who need the legacy codebase.
+
 ### AI Landing Zone for APIM
 | Type | Description |
 | ----------- | ----------- |
-| Bicep | [Repo](https://aka.ms/ai-hub-gateway) |
+| Bicep | [Repo](https://aka.ms/ailz/apim) |
 
 ## Design Checklist
 
-The AI Landing Zone cover the following design areas which are across the Cloud Adoption Framework and the Well-Architected Framework. In each design area there are design considertion and design recommendations to help you design a greenfield environment and assess a brown field environment using the [AI Landing Zone Checklist](/docs/AI-Landing-Zones-Design-Checklist.md).
+The AI Landing Zone cover the following design areas which are across the Cloud Adoption Framework and the Well-Architected Framework. In each design area there are design considertion and design recommendations to help you design a greenfield environment and assess a brown field environment using the [AI Landing Zone Checklist](https://azure.github.io/AI-Landing-Zones/architecture/design-checklist/).
 
 ![image](/media/AI-Landing-Zone-design-area-checklist.png)
 
@@ -61,10 +66,10 @@ The AI Landing Zone act as a foundation architecture which can be leveraged to d
 The AI Landing Zone is currently in preview. The roadmap for the project is available [here](https://aka.ms/ailz/roadmap).
 
 ## What's New
-The latest updates to the AI Landing Zone are documented [here](./docs/AI-Landing-Zones-Whats-New.md).
+The latest updates to the AI Landing Zone are documented [here](https://azure.github.io/AI-Landing-Zones/whatisnew/).
 
 ## Frequently Asked Questions
-The frequently asked questions about the AI Landing Zone are documented [here](./docs/AI-Landing-Zones-FAQs.md).
+The frequently asked questions about the AI Landing Zone are documented [here](https://azure.github.io/AI-Landing-Zones/architecture/faq/).
 
 ## Cloud Adoption Framework
 
