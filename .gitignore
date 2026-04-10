@@ -18,6 +18,9 @@
 .terraform
 .terraform/
 .tfstate
+.terraform
+.terraform/
+.tfstate
 
 # Bicep build outputs (don’t commit generated ARM templates)
 bicep/**/*.json
